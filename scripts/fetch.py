@@ -87,4 +87,8 @@ if __name__ == '__main__':
     max_chars = int(sys.argv[2]) if len(sys.argv) > 2 else 30000
 
     text, selector = scrapling_fetch(url, max_chars)
+
+    # Windows 控制台 UTF-8 输出修复
+    import io
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
     print(text)
